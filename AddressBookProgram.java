@@ -1,7 +1,5 @@
 import java.util.*;
 
-import java.util.Scanner;
-
 
 public class AddressBookProgram{
 
@@ -12,7 +10,7 @@ public class AddressBookProgram{
     public static void main(String[] args)
     {
 
-        System.out.println("Welcome to the Address book program");  // Welcome statement
+        System.out.println("---Welcome to the Address book program---"); // Welcome statement
         AddressBookProgram addressBookProgram = new AddressBookProgram();
         addressBookProgram.addContactList();
     }
@@ -146,12 +144,13 @@ public class AddressBookProgram{
         contactList.removeIf(contactItems -> contactItems.firstName.equals(delete));
     }
     public void addContactList() {
+        //ability to add multiple persons  by
         while (true) {
-            System.out.println("Press 0 - Display all contacts");
-            System.out.println("Press 1 - Add contact");
-            System.out.println("Press 2 - Edit contact");
-            System.out.println("press 3 -delete contact");
-            System.out.println("Press 6 - Exit");
+            System.out.println("Press 0 :- Display all contacts");
+            System.out.println("Press 1 :- Add contact");
+            System.out.println("Press 2 :- Edit contact");
+            System.out.println("press 3 :-delete contact");
+            System.out.println("Press 6 :- Exit");
 
             int option = sc.nextInt();
             sc.nextLine();
