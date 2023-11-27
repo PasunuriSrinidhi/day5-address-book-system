@@ -1,141 +1,162 @@
+import java.util.*;
 import java.util.Scanner;
 
-public class AddressBookProgram {
-    
-    private String FirstName;
-    private String LastName;
-    private String Address;
-    private String State;
-    private String City;
-    private long ZipCode;
-    private long PhoneNO;
-    private String Email;
-    //getters abd setters  for  each variable
 
-    Scanner sc = new Scanner(System.in);
+public class AddressBookProgram{
 
-    public String getFirstName() {
-        return FirstName;
+
+    static Scanner sc = new Scanner(System.in);
+    static ArrayList<ContactItems> contactList = new ArrayList<>();
+    // Main method
+    public static void main(String[] args)
+    {
+
+        System.out.println("Welcome to the Address book program"); // Welcome statement
+        AddressBookProgram addressBookProgram = new AddressBookProgram();
+        addressBookProgram.addContactList();
     }
 
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
+    public void display(ArrayList<ContactItems> contactList)//Display Address book
+    {
+        for (ContactItems contactItems : contactList)
+        {
+            System.out.println(contactItems);
+        }
     }
 
-    public String getLastName() {
-        return LastName;
-    }
+    //method to add new contacts in addressbook
+    public void addContact(ContactItems contactItems, ArrayList<ContactItems> contactList) {
 
-    public void setLastName(String lastName) {
-        LastName = lastName;
-    }
+        contactItems = new ContactItems();
 
-    public String getState() {
-        return State;
-    }
+        System.out.println("Enter first name : ");
+        contactItems.firstName = sc.next();
 
-    public void setState(String state) {
-        this.State = state;
-    }
+        System.out.println("Enter last name : ");
+        contactItems.lastName = sc.next();
+
+        System.out.println("Enter address : ");
+        contactItems.address = sc.next();
 
 
-    public String getAddress() {
-        return Address;
-    }
+        System.out.println("Enter city : ");
+        contactItems.city = sc.next();
 
-    public void setAddress(String address) {
-        this.Address = address;
-    }
+        System.out.println("Enter state : ");
+        contactItems.state = sc.next();
 
-    public Long getZipCode() {
-        return ZipCode;
-    }
+        System.out.println("Enter zip code : ");
+        contactItems.zip = sc.nextInt();
 
-    public void setZipCode(Long zipCode) {
-        ZipCode = zipCode;
-    }
+        System.out.println("Enter phone number : ");
+        contactItems.phoneNumber = sc.nextLong();
 
-    public Long getPhoneNO() {
-        return PhoneNO;
-    }
+        System.out.println("Enter email : ");
+        contactItems.email = sc.next();
 
-    public void setPhoneNO(Long phoneNO) {
-        PhoneNO = phoneNO;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getCity() {
-        return City;
-    }
-
-    public void setCity(String city) {
-        City = city;
-    }
-
-    public void display() {
-        System.out.println("Enter a First name: ");
-        setFirstName(sc.nextLine());
-
-        System.out.println("Enter a Last name: ");
-        setLastName(sc.nextLine());
-
-        System.out.println("Enter a Address: ");
-        setAddress(sc.next());
-
-        System.out.println("Enter a State: ");
-        setState(sc.next());
-
-        System.out.println("Enter a City: ");
-        setCity(sc.next());
-
-
-        System.out.println("Enter a Zipcode: ");
-        setZipCode(sc.nextLong());
-
-
-        System.out.println("Enter a Phone NUmber: ");
-        setPhoneNO(sc.nextLong());
-
-        System.out.println("Enter a Email: ");
-        setEmail(sc.next());
-
-
-        System.out.println("First Name:\t" + this.getFirstName());
-        System.out.println("last name:\t" + this.getLastName());
-        System.out.println("Address:\t" + this.getAddress());
-        System.out.println("State:\t" + this.getState());
-        System.out.println("Zipcode:\t" + this.getZipCode());
-        System.out.println("City:\t" + this.getCity());
-        System.out.println("Phone Number:\t" + this.getPhoneNO());
-        System.out.println("Email:\t" + this.getEmail());
-
-
+        contactList.add(contactItems);
 
     }
 
-    public static void main(String[] args) {
+    //method to edit contact in contact book
+    public void editContact()
+    {
 
-        AddressBookProgram Contact1 = new AddressBookProgram();
-        System.out.println("Enter The Details of Contact1:");
-        Contact1.display();
+        System.out.println("Enter the first name of contact you wish to edit");
+        String edit = sc.nextLine();
+        System.out.println("Press 1 - To edit first name");
+        System.out.println("Press 2 - To edit last name");
+        System.out.println("Press 3 - To edit address");
+        System.out.println("Press 4 - To edit city");
+        System.out.println("Press 5 - To edit state");
+        System.out.println("Press 6 - To edit zip code");
+        System.out.println("Press 7 - To edit phone number");
+        System.out.println("Press 8 - To edit email");
+        int choice = sc.nextInt();
+        if (choice == 1) {
+            for (ContactItems contactItems : contactList) {
+                if (contactItems.firstName.equals(edit)) {
+                    System.out.println("Enter new first name");
+                    contactItems.firstName = sc.next();
+                }
+            }
+        }
+        if (choice == 2) {
+            for (ContactItems contactItems : contactList) {
+                if (contactItems.firstName.equals(edit)) {
+                    System.out.println("Enter new last name");
+                    contactItems.lastName = sc.next();
+                }
+            }
+        }
+        if (choice == 3) {
+            for (ContactItems contactItems : contactList) {
+                if (contactItems.firstName.equals(edit)) {
+                    System.out.println("Enter new address");
+                    contactItems.address = sc.next();
+                }
+            }
+        }
+        if (choice == 4) {
+            for (ContactItems contactItems : contactList) {
+                if (contactItems.firstName.equals(edit)) {
+                    System.out.println("Enter new city");
+                    contactItems.city = sc.next();
+                }
+            }
+        }
+        if (choice == 5) {
+            for (ContactItems contactItems : contactList) {
+                if (contactItems.firstName.equals(edit)) {
+                    System.out.println("Enter new state");
+                    contactItems.state = sc.next();
+                }
+            }
+        }
+        if (choice == 6) {
+            for (ContactItems contactItems : contactList) {
+                if (contactItems.firstName.equals(edit)) {
+                    System.out.println("Enter new zip code");
+                    contactItems.zip = sc.nextInt();
+                }
+            }
+        }
+        if (choice == 7) {
+            for (ContactItems contactItems : contactList) {
+                if (contactItems.firstName.equals(edit)) {
+                    System.out.println("Enter new phone number");
+                    contactItems.phoneNumber = sc.nextLong();
+                }
+            }
+        }
+        if (choice == 8) {
+            for (ContactItems contactItems : contactList) {
+                if (contactItems.firstName.equals(edit)) {
+                    System.out.println("Enter new email");
+                    contactItems.email = sc.next();
+                }
+            }
+        }
+    }
 
-        // uc_2  added 2 more  contats in AddressBook
-        AddressBookProgram Contact2 = new AddressBookProgram();
-        System.out.println("Enter The Details of Contact2:");
-        Contact2.display();
+    // method to show conatctList in addressBook
+    public void addContactList() {
+        while (true) {
+            System.out.println("Press 0 - Display all contacts");
+            System.out.println("Press 1 - Add contact");
+            System.out.println("Press 2 - Edit contact");
+            System.out.println("Press 6 - Exit");
+            int option = sc.nextInt();
+            sc.nextLine();
 
-
-        AddressBookProgram Contact3 = new AddressBookProgram();
-        System.out.println("Enter The Details of Contact3:");
-        Contact3.display();
-
-
+            switch (option) {
+                case 0 -> display(contactList);
+                case 1 -> addContact(null, contactList);
+                case 2 -> editContact();
+            }
+            if (option == 6) {
+                break;
+            }
+        }
     }
 }
