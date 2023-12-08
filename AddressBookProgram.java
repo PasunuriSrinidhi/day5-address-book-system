@@ -96,7 +96,7 @@ public class AddressBookProgram {
                         case 3 -> contactFunctions.deleteContact(contactList);
                         case 4 -> contactFunctions.hasDuplicate(contactList);    
                         case 5 -> contactFunctions.getAllbyCity(city);   
-                        case 6 -> contactFunctions.getAllbyCity(state);  
+                        case 6 -> contactFunctions.getAllbyState(state);  
                         
                     }
                 }
