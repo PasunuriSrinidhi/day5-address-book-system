@@ -44,6 +44,7 @@ public class AddressBookProgram {
         }
     }
     // UC8: method to get all contacts by city
+    //UC9:  view Persons by City 
     public ArrayList<Contact> getAllbyCity(String city) {
         ArrayList<Contact> contacts = new ArrayList<>();
         for (Entry<String, Contact> entry : this.addressbook.entrySet()) {
@@ -55,6 +56,7 @@ public class AddressBookProgram {
     }
 
     // UC8: method to get all contacts by state
+     //UC9:  view Persons by City 
     public ArrayList<Contact> getAllbyState(String state) {
         ArrayList<Contact> contacts = new ArrayList<>();
         for (Entry<String, Contact> entry : this.addressbook.entrySet()) {
