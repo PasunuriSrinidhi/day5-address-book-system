@@ -43,6 +43,28 @@ public class AddressBookProgram {
             System.out.println(m.getKey() + " " + m.getValue());
         }
     }
+    // UC8: method to get all contacts by city
+    public ArrayList<Contact> getAllbyCity(String city) {
+        ArrayList<Contact> contacts = new ArrayList<>();
+        for (Entry<String, Contact> entry : this.addressbook.entrySet()) {
+            if (entry.getValue().city.equals(city)) {
+                contacts.add(entry.getValue());
+            }
+        }
+        return contacts;
+    }
+
+    // UC8: method to get all contacts by state
+    public ArrayList<Contact> getAllbyState(String state) {
+        ArrayList<Contact> contacts = new ArrayList<>();
+        for (Entry<String, Contact> entry : this.addressbook.entrySet()) {
+            if (entry.getValue().state.equals(state)) {
+                contacts.add(entry.getValue());
+            }
+        }
+        return contacts;
+    }
+
     //Display Menu Option
     public void addContactList() {
         int option = 0;
@@ -73,6 +95,9 @@ public class AddressBookProgram {
                         case 2 -> contactFunctions.editContact(contactList);
                         case 3 -> contactFunctions.deleteContact(contactList);
                         case 4 -> contactFunctions.hasDuplicate(contactList);    
+                        case 5 -> contactFunctions.getAllbyCity(city);   
+                        case 6 -> contactFunctions.getAllbyCity(state);  
+                        
                     }
                 }
             }
