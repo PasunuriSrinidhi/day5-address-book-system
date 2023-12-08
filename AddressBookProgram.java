@@ -34,6 +34,10 @@ public class AddressBookProgram {
         return null;
     }
 
+    // UC7: method to check for duplicate entry
+    public boolean hasDuplicate(String first_name) {
+        return this.addressbook.containsKey(first_name.toLowerCase().trim());
+    }
     public void displayList() {
         for (Map.Entry m : contactItemsDict.entrySet()) {
             System.out.println(m.getKey() + " " + m.getValue());
@@ -60,6 +64,7 @@ public class AddressBookProgram {
                     System.out.println("Press 1 - Add contact");
                     System.out.println("Press 2 - Edit contact");
                     System.out.println("Press 3 - Delete contact");
+                    System.out.println("Press 4- Check for duplicate");
                     System.out.println("Enter choice");
                     int choice = sc.nextInt();
                     switch (choice) {
@@ -67,6 +72,7 @@ public class AddressBookProgram {
                         case 1 -> contactFunctions.addContact(contactList);
                         case 2 -> contactFunctions.editContact(contactList);
                         case 3 -> contactFunctions.deleteContact(contactList);
+                        case 4 -> contactFunctions.hasDuplicate(contactList);    
                     }
                 }
             }
